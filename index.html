@@ -1,0 +1,111 @@
+<html>
+    <!--    
+       oooo     oooo ooooo  oooo           ooooooo8      o      oooo   oooo 
+        8888o   888   888    88          o888    88     888      8888o  88  
+        88 888o8 88    888  88 ooooooooo 888    oooo   8  88     88 888o88  
+        88  888  88     88888            888o    88   8oooo88    88   8888  
+       o88o  8  o88o     888              888ooo888 o88o  o888o o88o    88                                                                 
+    -->
+    <head>
+    </head>
+    <title>
+        MV-GAN
+    </title>
+    <script src="main.js"></script>
+    <body>
+        <div id="ui">
+            <p>
+                <big><strong> Machine Learning to solve equations of multiple variables</strong></big>
+                <br><small><i>By Daniel Mateus</i></small>
+            </p>
+
+            <p>
+                This equation solver works with equations in the form <br><br> N = ax + by + cz + ... <br>
+                 <br> Where x, y, z, ... are variables, and a, b, c, ... are constants.<br>
+                 It can take as many arguments as you want, and gives as a result <br>
+                 the possible solutions (there are infinite solutions for multivariable equations!)
+            </p>
+
+            <p> 
+                Choose the result value of the equation ("N" in the example):
+            </p>
+
+            <input type="number" id="output">
+
+            <p> 
+                Choose values for variables: <br> <small>(If you do not choose any value, it will be considered 0, thus if you want 
+                <br> a variable to not have any constant multiplied by it, choose the value 1)</small>
+            </p>
+
+            <form id="inputs">
+                <input type="text" id="input1" onkeyup="if (this.value.length > 0 && treated[this.id] != 1){ addOne(); treated[this.id] = '1'; }">
+            </form>
+
+            <p>
+                Choose the loss:<br><small>For example, if the loss is 0.5 and the expected result is N, the result will deviate &plusmn0.5 from N</small>
+                <br><small>(Having the loss less than 0.0001 (10<sup>-4</sup>) may cause perfomance issues)</small>
+            </p>
+
+            <input type="number" id="loss">
+
+            <div id="btndiv">
+                <button id="startbtn" onclick="btnevent()"> Show results</button>
+            </div>
+
+            <div id="running"></div>
+
+            <div id="solutions" style="font:1em monospace">
+                <p id="p1"></p>
+                <p id="p2"></p>
+                <ul id="best" style="list-style-type: upper-roman"></ul>
+            </div>
+            <style>
+                #ui{
+                position: relative;
+                top: 0px;
+                right: 0px;
+                float: left;
+                display: block;
+                max-width: 600px;
+                }
+            </style>
+        </div>  
+
+        <div id="gan-desc">
+            <img id="img" src="https://machinelearningmastery.com/wp-content/uploads/2019/04/Example-of-Supervised-Learning.png"> 
+            <p id="img-src" >
+                <small>Image source: https://machinelearningmastery.com/what-are-generative-adversarial-networks-gans/</small>
+            </p>
+            <p id="description">
+                <big><strong>Generative Adversarial Network (GAN)</strong></big><br>
+                <br>This model starts by assigning the variables x, y, z, ... to random weights, 
+                <br>and checking the loss <math>L = N - (a*x + b*y + c*y + ...)</math>.
+                <br>Then it changes the weights (subtract or add some small random value)
+                <br>and see if the loss gets smaller. If it does, it continues, otherwise it
+                <br>ignores the change. It does that until the loss is smaller than the choosen maximum loss
+            </p>
+            <style>
+                #gan-desc{
+                position: absolute;
+                top: 0px;
+                right: 60px;
+                }
+                #img{
+                position: relative;
+                top: 0px;
+                right: 0px;
+                }
+                #img-src{
+                position: relative;
+                bottom: 20px;
+                left: 0px;
+                }
+                #description{
+                position: relative;
+                bottom: 20px;
+                left: 0px;
+                }
+            </style>
+        </div>
+    </body>
+</html>
