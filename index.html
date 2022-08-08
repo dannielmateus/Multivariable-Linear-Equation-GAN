@@ -12,6 +12,36 @@
         MV-GAN
     </title>
     <script src="main.js"></script>
+    <style>
+            #gan-desc{
+            position: absolute;
+            top: 0px;
+            right: 60px;
+            }
+            #img{
+            position: relative;
+            top: 0px;
+            right: 0px;
+            }
+            #img-src{
+            position: relative;
+            bottom: 20px;
+            left: 0px;
+            }
+            #description{
+            position: relative;
+            bottom: 20px;
+            left: 0px;
+            }
+            #ui{
+            position: relative;
+            top: 0px;
+            right: 0px;
+            float: left;
+            display: block;
+            max-width: 600px;
+            }
+    </style>
     <body>
         <div id="ui">
             <p>
@@ -59,16 +89,6 @@
                 <p id="p2"></p>
                 <ul id="best" style="list-style-type: upper-roman"></ul>
             </div>
-            <style>
-                #ui{
-                position: relative;
-                top: 0px;
-                right: 0px;
-                float: left;
-                display: block;
-                max-width: 600px;
-                }
-            </style>
         </div>  
 
         <div id="gan-desc">
@@ -84,28 +104,6 @@
                 <br>and see if the loss gets smaller. If it does, it continues, otherwise it
                 <br>ignores the change. It does that until the loss is smaller than the choosen maximum loss
             </p>
-            <style>
-                #gan-desc{
-                position: absolute;
-                top: 0px;
-                right: 60px;
-                }
-                #img{
-                position: relative;
-                top: 0px;
-                right: 0px;
-                }
-                #img-src{
-                position: relative;
-                bottom: 20px;
-                left: 0px;
-                }
-                #description{
-                position: relative;
-                bottom: 20px;
-                left: 0px;
-                }
-            </style>
         </div>
     </body>
 </html>
