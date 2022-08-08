@@ -11,6 +11,14 @@ function addOne() {
     foo.appendChild(element)
 }
 
+// Detect input and add new input element
+function input1_keyup(obj) {
+    if (obj.value.length > 0 && treated[obj.id] != 1){ 
+       addOne(); 
+       treated[obj.id] = '1'; 
+    }
+}
+
 // Constants
 var output;
 var minLoss;
