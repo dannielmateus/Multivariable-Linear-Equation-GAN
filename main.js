@@ -6,7 +6,7 @@ function addOne() {
     var element = document.createElement("input")
     inputNumber++
     element.setAttribute("id", "input" + inputNumber)
-    element.setAttribute("onkeyup", "if (this.value.length > 0 && treated[this.id] != 1){ addOne(); treated[this.id] = '1'; }")
+    element.setAttribute("onkeyup", "input1_keyup(this)")
     var foo = document.getElementById("inputs")
     foo.appendChild(element)
 }
